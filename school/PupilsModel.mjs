@@ -1,6 +1,6 @@
 import {Validator} from  './validator.mjs'
 import {pupilsSchema} from './schema/pupilsSchema'
-import {createId} from './IdMaker'
+import {createId} from './idMaker'
 
 class PupilsModel {
     constructor() {

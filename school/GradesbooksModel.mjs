@@ -1,5 +1,5 @@
 import {Validator} from  './validator'
-import {createId} from './IdMaker'
+import {createId} from './idMaker'
 import {schemaRecord} from './schema/recordSchema'
 class GradesbooksModel {
 

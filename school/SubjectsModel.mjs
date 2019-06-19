@@ -1,6 +1,6 @@
 import {Validator} from  './validator.mjs'
 import {subjSchema} from './schema/subjectSchema'
-import {createId} from './IdMaker'
+import {createId} from './idMaker'
 class SubjectsModel {
     constructor(subject) {
         Validator.validate(subject, subjSchema);

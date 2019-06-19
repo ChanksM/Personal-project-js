@@ -1,4 +1,4 @@
-import {createId} from './IdMaker'
+import {createId} from './idMaker'
 
 class GroupsModel {
     constructor(pupil){
