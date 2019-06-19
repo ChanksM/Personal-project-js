@@ -6,25 +6,17 @@ class GroupsModel {
         this.pupil = pupil;
     }
 
-    checkValidation(obj){
-        if(typeof obj !== "number") {
-            throw new Error('Parameter must be a number');
-        }
-    }
-
     conclution(id){
         if(!this.groups.has(id)) {
             throw new Error('User not found with this id');
         }
     }
 
-    idError(){
-        throw new Error('Unknown id !');
-    }
-
     async add(room){
-        this.checkValidation(room);
-        
+        if(typeof room !== "number") {
+            throw new Error('Parameter must be a number');
+        }
+
         const id = createId();
         this.groups.set(id, { room, students: new Set() });
         return id;
@@ -58,13 +50,17 @@ class GroupsModel {
     async addPupil(id, pupil){
         if(this.groups.has(id)) {
             this.groups.get(id).students.add(pupil);
-        } else this.idError();
+        } else {
+            throw new Error('Unknown id !');
+        };
     }
 
     async removePupil(id, pupil){
         if(this.groups.has(id)) {
             this.groups.get(id).students.delete(pupil);
-        } else this.idError();
+        } else {
+            throw new Error('Unknown id !');
+        };
     }
 }
 

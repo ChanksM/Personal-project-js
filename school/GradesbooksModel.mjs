@@ -25,12 +25,15 @@ class GradesbooksModel {
 
     async addRecord(id, record) {
         Validator.validate(record,schemaRecord)
+        if (!this.gradeBook.has(id)) {
+            throw new Error('wrong parameter')
+        }
         this.gradeBook.get(id).records.push(record);
     }
 
     async read(id, pupil) {
         const records = this.gradeBook.get(id).records.filter(record => record.pupilId === pupil);
-        const { name: { first, last } } = await this.groups.pupil.read(records[0].pupilId);
+        const { name: { first, last } } = await this.groups.pupil.read(pupil);
         const result = { name: `${first} ${last}`, records: [] };
         for (const { teacherId, subjectId, lesson, mark } of records) {
             const { name: { first, last } } = await this.teachers.read(teacherId);

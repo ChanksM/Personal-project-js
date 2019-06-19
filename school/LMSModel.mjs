@@ -2,11 +2,11 @@ import { subjects } from './SubjectsModel';
 
 class LMSModel {
     constructor() {
-        this.subjects = new Set();
+        this.subjects = new Map();
     }
 
     async add(id) {
-        this.subjects.add(id);
+        this.subjects.set(id, subjects);
     }
 
     async remove(id) {

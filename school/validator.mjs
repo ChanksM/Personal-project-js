@@ -26,8 +26,12 @@ export class Validator {
                 if(Array.isArray(type)) {
                     let primary = 0;
                     object[key].forEach(element => {
-                        if (primary >= 1) { throw new Error('second primary'); }
-                        if (element.primary === true) { primary++; }
+                        if (primary >= 1) {
+                            throw new Error('second primary'); 
+                            }
+                        if (element.primary === true) {
+                            primary++; 
+                        }
                         this.validate(element, schema[key][0]);
                     });
                 } else if (typeof type === 'object') {
