@@ -1,12 +1,10 @@
-import { subjects } from './SubjectsModel';
-
 class LMSModel {
     constructor() {
         this.subjects = new Map();
     }
 
-    async add(id) {
-        this.subjects.set(id, subjects);
+    async add(subject) {
+        this.subjects.set(subject.id, subject);
     }
 
     async remove(id) {
@@ -18,7 +16,7 @@ class LMSModel {
     }
 
     async read(id) {
-        return subjects.get(id);
+        return this.subjects.get(id);
     }
 
     async readAll() {

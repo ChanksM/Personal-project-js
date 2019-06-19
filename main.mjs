@@ -33,7 +33,7 @@ const pupilSchemaSecond = { name: { first: 'Mu', last: 'Ch' },
         lessons: 24,
         description:'Hello History'
     });
-
+    console.log(history.id)
     const lms = new LMSModel();
     await lms.add(history);
 
